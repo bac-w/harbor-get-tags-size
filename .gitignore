@@ -8,6 +8,8 @@
 *.so
 *.dylib
 
+hartisize
+
 # Test binary, built with `go test -c`
 *.test
 
