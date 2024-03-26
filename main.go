@@ -92,7 +92,7 @@ func execute() {
 		Password: password,
 	}
 	cs, err := harbor.NewClientSet(&c)
-	artifacts, err := getAllArtifacts(cs, ctx, "advertising")
+	artifacts, err := getAllArtifacts(cs, ctx, projectName)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
