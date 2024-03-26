@@ -92,6 +92,9 @@ func execute() {
 		Password: password,
 	}
 	cs, err := harbor.NewClientSet(&c)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 	artifacts, err := getAllArtifacts(cs, ctx, projectName)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -236,7 +239,7 @@ func getAllArtifacts(cs *harbor.ClientSet, ctx context.Context, projectName stri
 		}
 		if progress {
 			bar.Describe(fmt.Sprintf("[green]🚀	%s [yellow]", v.Name))
-			bar.Add(1)
+			_ = bar.Add(1)
 		}
 		if artifactCount == 0 {
 			continue
